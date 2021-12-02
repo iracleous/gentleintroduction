@@ -15,15 +15,15 @@ public class Validation {
         }
 //athens -> 10, thessaloniki ->50, elsewhere ->70
 
-        if (person.getAddress() == null || person.getAddress().getCity() == null
-                || person.getAddress().getCity().trim().equals(""))
-            return false;
-        else if (person.getAddress().getCity().toLowerCase(Locale.ROOT).equals("athens"))
-            person.setBalance(person.getBalance() + 10);
-        else if (person.getAddress().getCity().toLowerCase(Locale.ROOT).equals("thessaloniki"))
-            person.setBalance(person.getBalance() + 50);
-        else
-            person.setBalance(person.getBalance() + 70);
+//        if (person.getAddress() == null || person.getAddress().getCity() == null
+//                || person.getAddress().getCity().trim().equals(""))
+//            return false;
+//        else if (person.getAddress().getCity().toLowerCase(Locale.ROOT).equals("athens"))
+//            person.setBalance(person.getBalance() + 10);
+//        else if (person.getAddress().getCity().toLowerCase(Locale.ROOT).equals("thessaloniki"))
+//            person.setBalance(person.getBalance() + 50);
+//        else
+//            person.setBalance(person.getBalance() + 70);
 
         return true;
     }

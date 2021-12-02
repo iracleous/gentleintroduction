@@ -1,16 +1,19 @@
 package gr.codehub.services;
 
+import gr.codehub.model.Customer;
 import gr.codehub.model.Person;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class Registration {
 
-    private ArrayList<Person> persons = new ArrayList<>();
+    private final ArrayList<Customer> persons = new ArrayList<>();
 
 
-    public void register(Person person){
-            persons.add(person);
+    public void register(Customer person){
+
+        persons.add(person);
     }
 
 
@@ -43,9 +46,9 @@ public class Registration {
 
 
 
-    public float calculateTotalBalance(){
+    public BigDecimal calculateTotalBalance(){
 
-        float totalBalance = 0;
+        BigDecimal totalBalance = new BigDecimal("0");
 //        for (int i = 0;i < persons.size(); i++){
 //            totalBalance += persons.get(i).getBalance();
 //        }
@@ -53,8 +56,8 @@ public class Registration {
 
 //  imperative programming
 
-       for(Person person:persons){
-           totalBalance += person.getBalance();
+       for(Customer person:persons){
+           totalBalance = totalBalance.add(person.getBalance()) ;
         }
 
        //functional programming

@@ -3,21 +3,16 @@ package gr.codehub.model;
 
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Data
 public class Person {
 
+    private int id;
     private String name;
-    private int age;
     private Address address;
-    private String speciality;
+    private LocalDate dateOfBirth;
+    private String userName;
+    private String password;
 
-    private  boolean hired;
-    private byte status;
-    private char department;
-    private short code;
-    private int registrationId;
-    private long identifier;
-    private float balance;
-    private double dBalance;
-
-}
+    }
