@@ -1,10 +1,13 @@
 package gr.codehub.model;
 
+import lombok.Data;
+
 import java.math.BigDecimal;
 
-public class Product {
+@Data
+public class Product extends Entity{
 
-    private int id;
+
     private String name;
     private BigDecimal price;
 }

@@ -5,30 +5,21 @@ import gr.codehub.repository.Repository;
 
 import java.util.List;
 
-public class ProductRepositoryImpl implements Repository<Product> {
+public class ProductRepositoryImpl extends RepositoryImpl<Product> {
+
 
     @Override
-    public int create(Product product) {
-        return 0;
+    public boolean update(int productId, Product product){
+        try {
+            Product dbProduct = read(productId);
+
+            dbProduct.setName(product.getName());
+            dbProduct.setPrice(product.getPrice());
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
     }
 
-    @Override
-    public Product read(int id) {
-        return null;
-    }
-
-    @Override
-    public List<Product> read() {
-        return null;
-    }
-
-    @Override
-    public void update(int id, Product product) {
-
-    }
-
-    @Override
-    public boolean delete(int id) {
-        return false;
-    }
 }

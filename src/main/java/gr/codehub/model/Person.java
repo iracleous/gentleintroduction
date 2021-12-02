@@ -6,9 +6,9 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Data
-public class Person {
+public class Person extends  Entity{
 
-    private int id;
+
     private String name;
     private Address address;
     private LocalDate dateOfBirth;

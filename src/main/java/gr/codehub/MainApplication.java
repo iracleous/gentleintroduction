@@ -1,37 +1,72 @@
 package gr.codehub;
 
 import gr.codehub.model.Address;
+import gr.codehub.model.Cart;
 import gr.codehub.model.Customer;
-import gr.codehub.model.Person;
-import gr.codehub.services.Registration;
-import gr.codehub.services.Validation;
+import gr.codehub.model.Product;
+import gr.codehub.repository.impl.CartRepositoryImpl;
+import gr.codehub.repository.impl.ProductRepositoryImpl;
+import gr.codehub.services.CustomerService;
 
-import java.util.ArrayList;
-import java.util.Locale;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 public class MainApplication {
 
 
     public static void main(String[] args) {
-        Registration registration = new Registration();
-        Validation validation = new Validation();
-
-       for(long i = 0; i <5; i++)
-        {
-            Customer person = new Customer();
-            person.setName("Danae");
-            Address address = new Address("Doridos", "7-9", 11526, "Thessaloniki");
-            person.setAddress(address);
 
 
-            if (validation.personValidation(person))
-                registration.register(person);
+        //GUI , front end
+        Address address = new Address();
+        address.setCity("Ioannina");
+
+        Customer customer = new Customer();
+        customer.setName("Eleftheria");
+        customer.setAddress(address);
+
+        Product product = new Product();
+        product.setName("potatoes");
+        product.setPrice(new BigDecimal("1"));
+
+        // initialization of services
+        CustomerService customerService = new CustomerService();
+        ProductRepositoryImpl productRepository = new ProductRepositoryImpl();
+        CartRepositoryImpl cartRepository = new CartRepositoryImpl();
+
+        // dispatching of customers
+        System.out.println("Customer id (before) = " + customer.getId());
+        customerService.register(customer);
+
+        System.out.println("Customer id (after)= " + customer.getId());
+
+        productRepository.create(product);
+
+        Customer customerFromDb = null;
+
+        try {
+            customerFromDb = customerService.findById(1);
+
+            System.out.println(customerFromDb.getName());
+            System.out.println(customerFromDb.getAddress());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return;
         }
 
-        registration.showPersons();
 
+       // cart creation process
 
-        System.out.println("Total balance of persons is "+ registration.calculateTotalBalance());
+        Cart cart = new Cart();
+        cart.setCustomer(customerFromDb);
+        cart.setDateTime( LocalDateTime.now());
 
+        cart.getProducts().add(product);
+
+        cartRepository.create(cart);
+
+        System.out.println("Total cart cost = "+ cartRepository.getTotal(cart.getId()));
+
+        System.out.println("The application has terminated normally");
     }
 }

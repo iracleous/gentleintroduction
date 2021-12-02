@@ -3,14 +3,15 @@ package gr.codehub.model;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public class Cart {
-    private int id;
+public class Cart extends Entity{
+
     private LocalDateTime dateTime;
     private Customer customer;
-    private List<Product> products;
+    private List<Product> products = new ArrayList();
     private Employee helpingEmployee;
 
 }
