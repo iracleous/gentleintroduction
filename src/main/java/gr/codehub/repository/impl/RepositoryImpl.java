@@ -32,10 +32,10 @@ public abstract class RepositoryImpl<T extends Entity> implements Repository<T> 
 
     @Override
     public T read(int id) throws EntityNotFoundException{
-        for(T customer: tList)
-            if (customer.getId() == id)
-                return customer;
-        throw new  EntityNotFoundException("The customer with id " + id +"is not found");
+        for(T t: tList)
+            if (t.getId() == id)
+                return t;
+        throw new  EntityNotFoundException("The item with id " + id +"is not found");
     }
 
 

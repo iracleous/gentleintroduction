@@ -19,33 +19,48 @@ public class MainApplication {
 
     }
 
-    /**
-     *
-     */
+
 
     private static final int CUSTOMER_ID =1;
     private static final int PRODUCT_ID =1;
     private static final String CUSTOMERS_FILENAME ="customers.csv";
     private static final String PRODUCTS_FILENAME ="products.csv";
 
-
-    public static void scenario3() throws EntityNotFoundException {
+    /**
+     *uses the stored data from csv files
+     * performs a  cart test
+     */
+    public static void scenario3()   {
         BusinessService businessService = new BusinessService();
 
         businessService.loadCustomers(CUSTOMERS_FILENAME);
         businessService.loadProducts(PRODUCTS_FILENAME);
 
-        Customer customer = businessService.findCustomerById(CUSTOMER_ID);
-        Product product = businessService.findProductById(PRODUCT_ID);
-
+        Customer customer;
+        Product product;
+        try {
+            customer= businessService.findCustomerById(CUSTOMER_ID);
+        }
+        catch (EntityNotFoundException e){
+            return;
+        }
         Cart cart = new Cart();
         cart.setCustomer(customer);
         cart.setDateTime( LocalDateTime.now());
 
-        cart.getProducts().add(product);
+
+        for (int productId=1; productId<10; productId++){
+            try {
+                product = businessService.findProductById(productId);
+                cart.getProducts().add(product);
+            }
+            catch(Exception e){
+             //   e.printStackTrace();
+                System.out.println(e.getMessage());
+            }
+        }
 
         businessService.createCart(cart);
-
 
         System.out.println(customer.getName() +  "   " + customer.getCategory());
         System.out.println("Total cart cost = "+ businessService.getTotal(cart.getId()));
@@ -54,7 +69,9 @@ public class MainApplication {
     }
 
 
-
+    /**
+     * loads customes from file and displays 1
+     */
 
     public static void scenario2(){
 
@@ -73,6 +90,11 @@ public class MainApplication {
     }
 
 
+    /**
+     * creates the customer file
+     * a product
+     * and tests a cart
+     */
 
     public static void scenario1(){
         //GUI , front end
