@@ -67,6 +67,11 @@ public class MainApplication {
 
         System.out.println("Total cart cost = "+ cartRepository.getTotal(cart.getId()));
 
+
+
+        customerService.save("customers.csv");
+
+
         System.out.println("The application has terminated normally");
     }
 }

@@ -14,4 +14,11 @@ public class Cart extends Entity{
     private List<Product> products = new ArrayList();
     private Employee helpingEmployee;
 
+    @Override
+    public String forTextFile() {
+        return getId() + ","
+                + getDateTime();
+    }
+
+
 }

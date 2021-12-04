@@ -10,4 +10,17 @@ public class Employee extends Person{
     private Date hireDate;
     private char department;
 
+    @Override
+    public String forTextFile() {
+        return getId() + ","
+                + getName() + ","
+                + getAddress() + ","
+                + getDateOfBirth() + ","
+                + getUserName() + ","
+                + getPassword()+ ","
+                + getSpeciality()+ ","
+                + getHireDate()+ ","
+                + getDepartment()  ;
+    }
+
 }

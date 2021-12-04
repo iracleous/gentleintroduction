@@ -3,6 +3,7 @@ package gr.codehub.repository.impl;
 import gr.codehub.model.Product;
 import gr.codehub.repository.Repository;
 
+import java.io.IOException;
 import java.util.List;
 
 public class ProductRepositoryImpl extends RepositoryImpl<Product> {
@@ -20,6 +21,13 @@ public class ProductRepositoryImpl extends RepositoryImpl<Product> {
         catch(Exception e){
             return false;
         }
+    }
+
+
+
+    @Override
+    public void load(String filename) throws IOException {
+        throw new IOException();
     }
 
 }

@@ -6,7 +6,7 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Data
-public class Person extends  Entity{
+public abstract class Person extends  Entity{
 
 
     private String name;

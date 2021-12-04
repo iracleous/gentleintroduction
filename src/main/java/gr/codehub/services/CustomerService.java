@@ -4,6 +4,8 @@ import gr.codehub.exceptions.EntityNotFoundException;
 import gr.codehub.model.Customer;
 import gr.codehub.repository.impl.CustomerRepositoryImpl;
 
+import java.io.IOException;
+
 public class CustomerService {
 
     private CustomerRepositoryImpl customerRepository
@@ -23,4 +25,15 @@ public class CustomerService {
             return customerRepository.read(customerId);
 
     }
+
+    public void save(String filename){
+        try {
+            customerRepository.save(filename);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 }

@@ -6,12 +6,16 @@ import gr.codehub.model.Entity;
 import gr.codehub.repository.Repository;
 
 
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public abstract class RepositoryImpl<T extends Entity> implements Repository<T> {
 
-    private final List<T> tList;
+    protected final List<T> tList;
     private static int tCount;
 
     public RepositoryImpl(){
@@ -53,6 +57,22 @@ public abstract class RepositoryImpl<T extends Entity> implements Repository<T> 
             return false;
         }
     }
+
+
+    @Override
+    public void save(  String filename) throws IOException {
+        try (PrintWriter printWriter = new PrintWriter(filename)){
+            for(Entity entity :tList){
+                printWriter.println(entity.forTextFile());
+            }
+        }
+     }
+
+
+
+
+
+
 
 
 }
