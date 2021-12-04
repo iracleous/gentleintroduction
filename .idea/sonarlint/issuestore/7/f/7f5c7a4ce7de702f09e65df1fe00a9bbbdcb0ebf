@@ -1,0 +1,5 @@
+
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(¯±Ïîşÿÿÿÿ8ˆöäæÖ/
+X	java:S125"<This block of commented-out lines of code should be removed.(÷˜ìø8ĞÜà×/
+O
+java:S1128"-Remove this unused import 'java.util.Locale'.(åğ×±ûÿÿÿÿ8ĞÜà×/

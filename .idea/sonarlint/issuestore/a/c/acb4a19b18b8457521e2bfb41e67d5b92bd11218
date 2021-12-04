@@ -1,0 +1,9 @@
+
+—
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‰ûõÖ
+—
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Þ¾—ë
+V	java:S125"<This block of commented-out lines of code should be removed.(¸¥‰Òÿÿÿÿÿ
+S	java:S106("9Replace this use of System.out or System.err by a logger.(–ÎÄ©üÿÿÿÿ
+Q	java:S1254"<This block of commented-out lines of code should be removed.(¡®Úé
+Q	java:S125D"<This block of commented-out lines of code should be removed.(§¢•

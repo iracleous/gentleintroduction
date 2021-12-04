@@ -8,7 +8,8 @@ import java.math.BigDecimal;
 @Data
 public class Customer extends Person {
 
-    private BigDecimal balance;
+    private BigDecimal balance = new BigDecimal("0");
+    private CustomerCategory category ;
 
     @Override
     public String forTextFile() {
@@ -18,6 +19,7 @@ public class Customer extends Person {
                 + getDateOfBirth() + ","
                 + getUserName() + ","
                 + getPassword()+ ","
-                + getBalance();
+                + getBalance()+ ","
+                + getCategory();
     }
 }
