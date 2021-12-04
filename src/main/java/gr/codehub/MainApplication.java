@@ -48,8 +48,8 @@ public class MainApplication {
         cart.setCustomer(customer);
         cart.setDateTime( LocalDateTime.now());
 
-
-        for (int productId=1; productId<10; productId++){
+            int[] listOfProducts = {2,4,7};
+            for (int productId :listOfProducts){
             try {
                 product = businessService.findProductById(productId);
                 cart.getProducts().add(product);
